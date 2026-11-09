@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: movimento-avaliacao-fisica
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /api/session
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: HOST
+        value: 0.0.0.0
+      - key: REQUIRE_AUTH
+        value: "1"
+      - key: DATA_STORE
+        value: supabase
+      - key: SUPABASE_URL
+        value: https://uuacoagstovfpiuopwym.supabase.co
+      - key: SUPABASE_SECRET_KEY
+        sync: false
+      - key: APP_PASSWORD_HASH
+        sync: false

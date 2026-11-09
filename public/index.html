@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#176c61"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <title>Movimento — Avaliação Física</title>
+  <link rel="manifest" href="/manifest.webmanifest"><link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#inicio" aria-label="Movimento, início"><span class="brand-mark">m</span><span>movimento<small>avaliação física</small></span></a>
+      <div class="side-label">ESPAÇO DE TRABALHO</div>
+      <nav class="side-nav" aria-label="Navegação principal">
+        <button class="nav-item active" data-page="inicio"><span class="nav-icon">⌂</span> Visão geral</button>
+        <button class="nav-item" data-page="alunos"><span class="nav-icon">♙</span> Alunos <span class="nav-count" id="nav-count">0</span></button>
+      </nav>
+      <div class="sidebar-bottom"><div class="local-state"><span class="online-dot"></span><div><strong>Banco de avaliações</strong><small>Local ou hospedado</small></div></div><button class="nav-item muted" data-page="sobre"><span class="nav-icon">ⓘ</span> Sobre o beta</button><button class="nav-item muted" id="logout" hidden><span class="nav-icon">↪</span> Sair</button></div>
+    </aside>
+    <main class="main-area">
+      <header class="topbar"><div><div class="eyebrow" id="breadcrumb">ESPAÇO DE TRABALHO</div><h1 id="page-title">Visão geral</h1></div><button class="button button-primary" id="quick-new">＋ <span>Novo aluno</span></button></header>
+      <div class="content" id="content"></div>
+    </main>
+  </div>
+  <dialog id="modal" class="modal"></dialog>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="/app.js?v=beta-20261104-hosted-2" defer></script>
+  <script src="/auth-ui.js" defer></script>
+  <script src="/pwa.js" defer></script>
+</body>
+</html>
+
+
+
+
+
+

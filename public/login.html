@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#176c61"><meta name="robots" content="noindex,nofollow">
+  <title>Acesso — Movimento</title>
+  <style>
+    :root{font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;color:#172b28;background:#f3f7f5;font-synthesis:none;text-rendering:optimizeLegibility}
+    *{box-sizing:border-box}body{min-height:100vh;margin:0;display:grid;place-items:center;padding:24px}.card{width:min(100%,420px);padding:36px;border:1px solid #dfe9e4;border-radius:20px;background:#fff;box-shadow:0 22px 60px #1b49351a}.brand{display:flex;align-items:center;gap:12px;margin-bottom:30px;color:#176c61;font-weight:750;font-size:22px}.mark{display:grid;place-items:center;width:42px;height:42px;border-radius:13px;background:#176c61;color:white;font-size:25px}.brand small{display:block;color:#75837e;font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase}h1{margin:0 0 8px;font-size:24px;letter-spacing:-.03em}p{margin:0 0 24px;color:#63716c;line-height:1.5}.field{display:grid;gap:8px;margin-bottom:18px}label{font-size:13px;font-weight:650}input{width:100%;height:48px;padding:0 13px;border:1px solid #cad8d2;border-radius:10px;font:inherit}input:focus{outline:3px solid #176c6126;border-color:#176c61}button{width:100%;height:48px;border:0;border-radius:10px;background:#176c61;color:white;font:inherit;font-weight:700;cursor:pointer}button:disabled{opacity:.65;cursor:wait}.error{min-height:22px;margin-top:12px;color:#a33232;font-size:13px}footer{margin-top:18px;color:#77847f;font-size:12px;text-align:center}
+  </style>
+</head>
+<body>
+  <main class="card">
+    <div class="brand"><span class="mark">m</span><span>movimento<small>avaliação física</small></span></div>
+    <h1>Acesso protegido</h1><p>Digite a senha de acesso para abrir o sistema.</p>
+    <form id="login-form"><div class="field"><label for="password">Senha</label><input id="password" name="password" type="password" autocomplete="current-password" required autofocus></div><button id="submit" type="submit">Entrar</button><div class="error" id="error" role="alert" aria-live="polite"></div></form>
+    <footer>O acesso é privado e a conexão é criptografada.</footer>
+  </main>
+  <script>
+    const form = document.getElementById('login-form');
+    form.addEventListener('submit', async event => {
+      event.preventDefault();
+      const button = document.getElementById('submit'); const error = document.getElementById('error');
+      button.disabled = true; error.textContent = '';
+      try {
+        const response = await fetch('/api/login', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ password: form.password.value }) });
+        const data = await response.json();
+        if (!response.ok) throw new Error(data.error || 'Não foi possível entrar.');
+        window.location.assign('/');
+      } catch (e) { error.textContent = e.message; button.disabled = false; }
+    });
+  </script>
+</body>
+</html>
